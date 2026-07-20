@@ -1,10 +1,10 @@
-# Depth First Search (DFS) of Graph
+# Breadth First Search (BFS) of Graph
 
 ## Problem Statement
 
-Given a connected undirected graph containing `V` vertices represented by a 2D adjacency list `adj[][]`, where each `adj[i]` contains the vertices connected to vertex `i`, perform a **Depth First Search (DFS)** traversal starting from vertex `0`.
+Given a connected undirected graph containing `V` vertices represented by a 2D adjacency list `adj[][]`, where each `adj[i]` contains the vertices connected to vertex `i`, perform a **Breadth First Search (BFS)** traversal starting from vertex `0`.
 
-Visit the vertices **from left to right** according to the order in the given adjacency list, and return the DFS traversal as a list.
+Visit the vertices **from left to right** according to the order in the given adjacency list, and return the BFS traversal as a list.
 
 **Note:** Traverse the neighbors in the exact order they appear in the adjacency list.
 
@@ -33,7 +33,7 @@ adj[][] = [
 **Output**
 
 ```text
-[0, 2, 4, 3, 1]
+[0, 2, 3, 1, 4]
 ```
 
 **Explanation**
@@ -41,17 +41,16 @@ adj[][] = [
 Starting from vertex `0`:
 
 1. Visit `0`
-2. Visit `2` (first neighbor of `0`)
-3. Visit `4` (first neighbor of `2`)
-4. Backtrack to `2`, then to `0`
-5. Visit `3`
-6. Backtrack to `0`
-7. Visit `1`
+2. Enqueue its neighbors in order: `2`, `3`, `1`
+3. Visit `2` and enqueue `4`
+4. Visit `3`
+5. Visit `1`
+6. Visit `4`
 
-Final DFS traversal:
+Final BFS traversal:
 
 ```text
-[0, 2, 4, 3, 1]
+[0, 2, 3, 1, 4]
 ```
 
 ---
@@ -85,13 +84,13 @@ adj[][] = [
 Starting from vertex `0`:
 
 1. Visit `0`
-2. Visit `1`
-3. Visit `2`
-4. Visit `3`
-5. Backtrack to `2`
+2. Enqueue `1`, `2`
+3. Visit `1`
+4. Visit `2` and enqueue `3`, `4`
+5. Visit `3`
 6. Visit `4`
 
-Final DFS traversal:
+Final BFS traversal:
 
 ```text
 [0, 1, 2, 3, 4]
